@@ -171,7 +171,8 @@ func (self *Gate) Destroy() {
 
 func (self *Gate) RegisteGate(count int) {
 	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		TLSClientConfig:   &tls.Config{InsecureSkipVerify: true},
+		DisableKeepAlives: true,
 	}
 	client := &http.Client{Transport: tr}
 	resp, err := client.PostForm(self.config.PostUrl,

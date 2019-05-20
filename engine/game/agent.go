@@ -28,7 +28,7 @@ func (a *Agent) Run() {
 			if a.OnMessage != nil {
 				a.OnMessage(mtype, sid, []byte(msg), a)
 			}
-			a.Controller.HandleMassage(mtype, sid, []byte(msg), a)
+			// a.Controller.HandleMassage(mtype, sid, []byte(msg), a)
 		}
 	}
 }

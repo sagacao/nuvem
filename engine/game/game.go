@@ -44,7 +44,7 @@ func NewGame(fn FuncMessageHandle, listenAddr string) *Game {
 		return a
 	}
 
-	controller.SetSvr(_game.tcpServer)
+	// controller.SetSvr(_game.tcpServer)
 
 	if _game.tcpServer != nil {
 		_game.tcpServer.Start()
