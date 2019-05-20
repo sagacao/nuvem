@@ -1,2 +1,2 @@
 # nuvem
-faygo elastic mongo
+gin websocket tcp mongo
