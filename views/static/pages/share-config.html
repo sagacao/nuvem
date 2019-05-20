@@ -1,0 +1,61 @@
+<div class="content-wrap" id="shareconfigdiv">
+    <div class="content-title">
+        <strong>配置查询</strong>
+    </div>
+    <div class="content-main ">
+        <div class="tab-content tabContent mar-top20">
+            <form role="form" class="form-inline mar-bottom30">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">GameID：</label>
+                    <select id="" class="form-control font-bold" data-bind="options:gameid,optionsText:'name',optionsValue:'id',value:selectedGame"></select>
+                </div>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info" id="dataMath" data-bind="click:searchshareconfig">查询</button>
+                    </div>
+                </div>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-info" id="dataAdd" data-bind="click:addshareconfig">更新</button>
+                    </div>
+                </div>
+            </form>
+            <form role="form" class="form-horizontal mar-bottom30">
+                <div id="shareconfigpage" class="form-group" style="display:none">
+                    <div class="form-group mar-left20">
+                        <label class="col-sm-1 control-label">Content</label>
+                        <textarea type="text" class="form-control " id="content" rows="16" style="min-width: 90%" data-bind="value: mycontent"  ></textarea>
+                    </div>
+                    <div class="form-group mar-left20">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-info" id="dataEnsure" data-bind="click: ensureshareconfig">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="content-title">
+        <strong>当前配置</strong>
+    </div>
+    <div class="content-main">
+        <div class="tab-content tabContent mar-top20">
+            <!-- table -->
+            <table class="table table-condensed table-bordered table-style" id="shareconfigTable">
+                <thead>
+                    <tr>
+                        <th>配置数据</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr>
+                        <td data-bind="text:dataValue"></td>
+                        <td ></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/views/static/js/pages/share-config.js"></script>

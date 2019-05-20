@@ -1,0 +1,102 @@
+<div class="content-wrap" id="noticediv">
+    <div class="content-title">
+        <strong>公告查询</strong>
+    </div>
+    <div class="content-main ">
+        <div class="tab-content tabContent mar-top20">
+            <form role="form" class="form-inline mar-bottom30">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">GameID：</label>
+                    <select id="" class="form-control font-bold" data-bind="options:gameid,optionsText:'name',optionsValue:'id',value:selectedGame"></select>
+                </div>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info" id="dataMath" data-bind="click:searchnotice">查询</button>
+                    </div>
+                </div>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-info" id="dataAdd" data-bind="click:addnotice">添加</button>
+                    </div>
+                </div>
+            </form>
+            <form role="form" class="form-horizontal mar-bottom30">
+                <div id="noticepage" class="form-group" style="display:none">
+                    <!-- Select Time -->
+                    <div class="row form-group mar-left20">
+                        <div class="col-lg-1">
+                            <input class="form-control form_datetime" id="mystime" name="mystime" type="text" value="" data-bind="value: mystime" readonly />
+                        </div>
+                        <div class="col-lg-1" >
+                            <input class="form-control form_datetime" id="myetime" name="myetime" type="text" value="" data-bind="value: myetime" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group mar-left20">
+                        <label class="col-sm-1 control-label">Title：</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="title" data-bind="value: mytitle" />
+                        </div>
+                    </div>
+                    <div class="form-group mar-left20">
+                        <label class="col-sm-1 control-label">Content</label>
+                        <textarea type="text" class="form-control " id="content" rows="3" data-bind="value: mycontent"  ></textarea>
+                    </div>
+                    <div class="form-group mar-left20">
+                        <label class="col-sm-1 control-label">ShareTitle：</label>
+                        <input type="text" class="form-control " id="sharetitle" data-bind="value: mysharetitle" />
+                    </div>
+                    <div class="form-group mar-left20">
+                        <label class="col-sm-1 control-label">Image</label>
+                        <input type="text" class="form-control " id="image" data-bind="value: myimage" />
+                    </div>
+                    <div class="form-group mar-left20">
+                        <label class="col-sm-1 control-label">Answer</label>
+                        <input type="text" class="form-control " id="answer" data-bind="value: myanswer" />
+                    </div>
+                    <div class="form-group mar-left20">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-info" id="dataEnsure" data-bind="click: ensurenotice">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="content-title">
+        <strong>当前公告</strong>
+    </div>
+    <div class="content-main">
+        <div class="tab-content tabContent mar-top20">
+            <!-- table -->
+            <table class="table table-condensed table-bordered table-style" id="noticeTable">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>起始时间</th>
+                        <th>结束时间</th>
+                        <th>标题</th>
+                        <th>内容</th>
+                        <th>连接</th>
+                        <th>分享标题</th>
+                        <th>答案</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:dataList">
+                    <tr>
+                        <td data-bind="text:id"></td>
+                        <td data-bind="text:stime"></td>
+                        <td data-bind="text:etime"></td>
+                        <td data-bind="text:title"></td>
+                        <td data-bind="text:content"></td>
+                        <td data-bind="text:image"></td>
+                        <td data-bind="text:sharetitle"></td>
+                        <td data-bind="text:answer"></td>
+                        <td ><button type="button" class="btn btn-warning" data-bind="click: $parent.removenotice" >删除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/views/static/js/pages/notice.js"></script>

@@ -1,0 +1,84 @@
+<div class="content-wrap" id="magicdiv">
+    <div class="content-title">
+        <strong>公告查询</strong>
+    </div>
+    <div class="content-main ">
+        <div class="tab-content tabContent mar-top20">
+            <form role="form" class="form-inline mar-bottom30">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">GameID：</label>
+                    <select id="" class="form-control font-bold" data-bind="options:gameid,optionsText:'name',optionsValue:'id',value:selectedGame"></select>
+                </div>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info" id="dataMath" data-bind="click:searchmagic">查询</button>
+                    </div>
+                </div>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-info" id="dataAdd" data-bind="click:addmagic">添加</button>
+                    </div>
+                </div>
+            </form>
+            <form role="form" class="form-horizontal mar-bottom30">
+                <div id="magicpage" class="form-group" style="display:none">
+                    <!-- Select Time -->
+                    <div class="row form-group mar-left20">
+                        <label class="col-sm-1 control-label">失效时间：</label>
+                        <div class="col-lg-1" >
+                            <input class="form-control form_datetime" id="myetime" name="myetime" type="text" value="" data-bind="value: myetime" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group mar-left20">
+                        <label class="col-sm-1 control-label">激活码：</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="magicnumber" data-bind="value: magicnumber" />
+                        </div>
+                    </div>
+                    <div class="form-group mar-left20">
+                        <label class="col-sm-1 control-label">使用次数:</label>
+                        <input type="text" class="form-control " id="times" data-bind="value: times"  ></input>
+                    </div>
+                    <div class="form-group mar-left20">
+                        <label class="col-sm-1 control-label">金币：</label>
+                        <input type="text" class="form-control " id="coin" data-bind="value: coin" />
+                    </div>
+                    <div class="form-group mar-left20">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-info" id="dataEnsure" data-bind="click: ensuremagic">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="content-title">
+        <strong>当前公告</strong>
+    </div>
+    <div class="content-main">
+        <div class="tab-content tabContent mar-top20">
+            <!-- table -->
+            <table class="table table-condensed table-bordered table-style" id="magicTable">
+                <thead>
+                    <tr>
+                        <th>激活码</th>
+                        <th>失效时间</th>
+                        <th>使用次数</th>
+                        <th>金币</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:dataList">
+                    <tr>
+                        <td data-bind="text:keystr"></td>
+                        <td data-bind="text:deadline"></td>
+                        <td data-bind="text:times"></td>
+                        <td data-bind="text:coin"></td>
+                        <td ><button type="button" class="btn btn-warning" data-bind="click: $parent.removemagic" >删除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/views/static/js/pages/magic.js"></script>

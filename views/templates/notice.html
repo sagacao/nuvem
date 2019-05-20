@@ -1,0 +1,123 @@
+<div class="content-wrap" id="noticediv">
+    <div class="content-title">
+        <strong>公告查询</strong>
+    </div>
+    <div class="content-main mar-bottom30">
+        <div class="tab-content tabContent mar-top20">
+            <form role="form" class="form-inline mar-bottom30">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">GameID：</label>
+                    <select id="" class="form-control font-bold" data-bind="options:gameid,optionsText:'name',optionsValue:'id',value:selectedGame"></select>
+                </div>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info" id="dataMath" data-bind="click:searchnotice">查询</button>
+                    </div>
+                </div>
+            </form>
+            <form role="form" class="form-inline mar-bottom30"></form>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-info" id="dataAdd" data-toggle="collapse" data-target="#noticepage">添加</button>
+                    </div>
+                </div>
+                <div id="noticepage" class="collapse in">
+                    <!-- Select Time -->
+                    <span class="right-arrow" style="display: none;" data-bind="visible: filterByDate"></span>
+                    <div class="fl dropdown" id="timeDropdownSelect" style="display: none;" data-bind="visible: filterByDate">
+                        <div id="dropdown_time" class="SelectPlatform" class="dropdown-toggle" data-toggle="dropdown">
+                            <a class="time-start"></a> <span data-bind="visible:onlyTime">~</span><a class="time-end" data-bind="visible:onlyTime"></a>
+                            <em></em>
+                        </div>
+                        <ul class="dropdown-menu time-picker" role="menu" data-bind="click:timePicker,clickBubble: false">
+                        <li class="time-top">
+                            <ul>
+                                <li data-bind="click:today, clickBubble: false">今日 |</li>
+                                <li data-bind="click:yesterday, clickBubble: false">昨日 |</li>
+                                <li id="last_seven" data-bind="click:lastSeven, clickBubble: false">近7日 |</li>
+                                <li data-bind="click:lastThirty, clickBubble: false">近30日 |</li>
+                                <li data-bind="click:timeAll, clickBubble: false">全部</li>
+                            </ul>
+                        </li>
+                        <ul>
+                            <li class="select-time form-horizontal clearfix">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"> 自定&nbsp; </label>
+                                    <div class="col-sm-1">
+                                        <input class="form-control form_datetime" id="deStartTime" name="deStartTime" type="text" value="" data-bind="value: deStartTime"
+                                            readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group" data-bind="visible:onlyTime">
+                                    <label class="col-sm-1 control-label"> 到&nbsp;</label>
+                                    <div class="col-sm-1">
+                                        <input class="form-control form_datetime" id="deEndTime" name="deEndTime" type="text" value="" data-bind="value: deEndTime"
+                                            readonly/>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="error" style="display: none;" data-bind="visible:timeErrorShow">日期选择有误！</li>
+                            <li class="submitBtn">
+                                <button id="reset" class="btn btn-warning" data-bind="click: resetTime">重置</button>
+                                <button id="ensure" class="btn btn-info" data-bind="disable:timeErrorShow,click: correctTime">确定</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form-group mar-right10">
+                        <label class="col-sm-1 control-label">Title：</label>
+                        <input type="text" class="form-control width95" id="title" data-bind = "value:title" />
+                    </div>
+                    <div class="form-group mar-right10">
+                        <label class="col-sm-1 control-label">Content</label>
+                        <textarea type="text" class="form-control width95" id="content" rows="3" data-bind = "value:content" ></textarea>
+                    </div>
+                    <div class="form-group mar-right10">
+                        <label class="col-sm-1 control-label">ShareTitle：</label>
+                        <input type="text" class="form-control width95" id="sharetitle" data-bind = "value:sharetitle" />
+                    </div>
+                    <div class="form-group mar-right10">
+                        <label class="col-sm-1 control-label">Image</label>
+                        <input type="text" class="form-control width95" id="image" data-bind = "value:image" />
+                    </div>
+                    <div class="form-group mar-right10">
+                        <label class="col-sm-1 control-label">Answer</label>
+                        <input type="text" class="form-control width95" id="answer" data-bind = "value:answer" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="content-title">
+        <strong>当前公告</strong>
+    </div>
+    <div class="content-main">
+        <div class="tab-content tabContent mar-top20">
+            <!-- table -->
+            <table class="table table-condensed table-bordered table-style" id="onlineTable">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>起始时间</th>
+                        <th>结束时间</th>
+                        <th>标题</th>
+                        <th>内容</th>
+                        <th>连接</th>
+                        <th>答案</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:dataList">
+                    <tr>
+                        <td data-bind="text:id"></td>
+                        <td data-bind="text:stime"></td>
+                        <td data-bind="text:etime"></td>
+                        <td data-bind="text:title"></td>
+                        <td data-bind="text:content"></td>
+                        <td data-bind="text:image"></td>
+                        <td data-bind="text:answer"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/views/static/js/pages/notice.js"></script>

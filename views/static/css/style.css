@@ -1,0 +1,691 @@
+body{
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	min-width: 1310px;
+	font-size: 12px;
+	font-family:"Microsoft YaHei", Helvetica, arial,sans-serif,tahoma;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscaled;
+	overflow: hidden;
+	background: url(../img/bg.jpg) repeat;
+}
+header{
+	height: 130px;
+	width: 100%;
+}
+header>.user{
+	width: auto;
+	height: 30px;
+	background: url("../img/header-bg2.jpg");
+	line-height:30px;
+	padding: 0 40px;
+}
+header>.toptitle{
+	height: 99px;
+	background: url("../img/header_bg.jpg");
+	font-size: 14px;
+	padding: 0 29px;
+	position: relative;
+	line-height: 99px;
+}
+.mainContainer{
+	overflow: hidden;
+}
+/* 选中文字颜色 */
+::selection{background:#5bc0de; color:white;}  
+::-moz-selection{background:#5bc0de; color:white;}  
+::-webkit-selection{background:#5bc0de; color:white;}
+/* ---------------- login ---------------- */
+.login-container{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display:none\8;
+}
+
+.login-container .bg-photo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url(../img/login-bg.png) no-repeat center center;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;
+} 
+	
+.login-main{
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    margin-top: -250px;
+}
+
+.login-main h1{
+	margin-bottom: 30px;
+	font-size: 40px;
+    font-weight: bolder;
+    color: #DA2626;
+    text-align: center;
+    text-shadow: 0 3px 7px rgba(150,120,120,.2);
+}
+
+#loginForm{
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#loginForm .form-group{
+	/*width: 380px;*/
+	width: 414px;
+	margin: 0 auto;
+	text-align: left;
+	float: none;
+}
+
+#loginForm .login-wrap{
+	width: 320px;
+	height: 40px;
+	display: inline-block;
+	margin: 0 auto;
+	padding: 4px 30px;
+	line-height: 40px;
+	border-radius: 20px;
+    /*font-family: "Microsoft YaHei";*/
+}
+
+#loginForm .checkbox{
+    position: relative;
+    left: 25px;
+}
+
+#loginForm #loginSubmit{
+	width: 380px;
+	height: 50px;
+	background:#50b3fa ;
+	text-align:center ;
+	border: none;
+    margin-top: 10px;
+    font-size: 24px;
+	font-weight: bolder;
+	line-height: 40px;
+    position: relative;
+    left: -15px;
+    outline: 0;
+}
+
+/* -------- aside ------- */
+aside{
+	width: 179px;
+	float: left;
+	margin-bottom: -3000px;
+	padding-bottom: 3000px;
+	background: #F5F6FA;
+	border-right: 1px solid #8F949A;
+	box-shadow: 1px 3px 5px #8F949A;
+}
+.ztree li>ul>li>ul>li{  
+    background: #e5eaee;
+}
+.pageContainer{
+    min-height: 884px;
+    overflow: hidden;
+    /* background: rgb(232, 203, 191); */
+    padding: 14px 28px 0;
+}
+table thead>tr>th{
+    background: #ebf0f3;
+}
+/* -------------- bootstrap-------------- */
+.form-group{
+    margin-top:10px;
+}
+/* --------------- layui ------------- */
+body .layui-layer-loading .layui-layer-loading1 {
+    width: 105px;
+    height: 20px;
+    padding-top: 40px;
+    background-position: 30% 0%;
+    color: red;
+}
+/* ---------------- page ---------------- */
+ul.pages {
+	display: block;
+	border: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	margin: 10px 0 50px;
+	padding: 0;
+	font: normal 13px "Microsoft YaHei";
+	font-family: "Microsoft YaHei","Microsoft YaHei","sans-serif";
+}
+ul.pages li {
+	float: left;
+	padding: 4px 7px;
+	text-decoration: none; 
+	border-left-width: 0;
+	list-style: none;
+	background-color: #D2D1D1;
+	color: #888;
+	margin: 0 3px 0 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+ul.pages li:hover {
+	color: #fff;
+	background-color: #5F6964;
+}
+ul.pages li.pgCurrent {
+    color: #fff;
+    font-weight: 700;
+    background-color: #5F6964;
+}
+ul.pages li.pgEmpty {
+	display: none ;
+}
+#pager>ul>input{
+    display: inline-block;
+    width: 30px;    
+    margin-bottom: 0;
+    margin-top: -1px;
+}
+#pager>ul>span{
+    vertical-align: top;
+    display: inline-block;
+    width: 40px;
+    height: 100%;
+    background: #D2D1D1;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+    margin-left: -6px;
+    margin-top: -1px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+#pager>ul>span:hover{
+    background: #5F6964;
+    color: #fff;
+}
+.errInput{
+    outline:none;
+    border-color: rgb(247, 151, 151) !important;
+    box-shadow: 0 0 .7px .7px rgba(247, 151, 151,.6) !important;
+}
+/* ---------------- user ---------------- */
+.changePass{
+	color: #58AD4F;
+	border-bottom: 1px solid #8DA79B;
+	cursor: pointer;
+}
+.user-name{
+	color: #58AD4F;
+    border-bottom: 1px solid #8DA79B;
+    margin-right: 10px;
+}
+.exit a{
+	color: #fff;
+    margin-right: 10px;
+}
+.exit a:hover {
+    color: #EA2626;
+}
+/* ----------------- titleContainer ----------------- */
+.titleContainer{
+	margin-left: 20px;
+}
+.titleContainer>strong{
+	display: block;
+	line-height: 99px;
+	float: left;
+	margin: 0 10px;
+	font-weight: normal;
+	text-shadow: 1px 1px 1px #111;
+}
+.titleContainer>strong a{
+	color: #E4F9FF;
+    line-height: 34px;
+}
+.titleContainer .right-arrow{
+	display: block;
+	float: left;
+	height: 99px;
+    line-height: 99px;
+    width: 9px;
+    background: url(../img/top_Aroww.png) no-repeat right;
+    margin: 0 10px;
+}
+.titleContainer .boxSlect {
+    float: left;
+    height: 99px;
+    width: 135px;
+    line-height: 99px;
+}
+.SelectPlatform {
+    height: 99px;
+    display: block;
+    background: url(../img/input_list_left.gif) no-repeat left;
+    cursor: pointer;
+    position: relative;
+}
+.SelectPlatform:hover {
+    background: url(../img/input_list_left_hover.gif) no-repeat left;
+}
+.SelectPlatform:hover em {
+    float: right;
+    background: url(../img/input_list_right_hover.gif) no-repeat center;
+    display: block;
+    width: 23px;
+    height: 34px;
+}
+.SelectPlatform font {
+    padding: 8px 10px 0 10px;
+    display: block;
+    float: left;
+    height: 26px;
+    width: 92px;
+    text-align: center;
+}
+.SelectPlatform font img {
+    margin: 0 1px;
+    position: relative;
+    top: -10px;
+}
+.SelectPlatform em {
+    float: right;
+    background: url(../img/input_list_right.gif) no-repeat center;
+    display: block;
+    width: 23px;
+    height: 34px;
+    margin-top: 33px;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 62%;
+}
+.SelectPlatform a{
+	padding: 0 10px;
+	color: #333;
+}
+.time-picker {
+    min-width: 251px !important;
+    padding: 0px;
+    padding-bottom: 5px;
+}
+.time-top {
+    width: 100%;
+    height: 35px;
+}
+.time-top ul {
+    margin-left: 0px;
+    margin-right: -1px;
+    height: 32px;
+    line-height: 35px;
+    background: #7288A0;
+}
+.time-picker li ul li {
+    height: 35px;
+    line-height: 35px;
+    float: left;
+    display: inline-block;
+    min-width: 46px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+.select-time {
+    width: 225px;
+    color: #637d8f;
+    margin: 0 auto;
+}
+.error {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 60px;
+    font-size: 10px;
+    color: red;
+}
+.submitBtn {
+    width: 95%;
+    margin: 10px auto;
+    text-align: right;
+}
+.form-group .control-label {
+    padding-right: 10px;
+    font-size: 15px;
+}
+.select-time .control-label {
+    width: 35px;
+}
+.select-time .form-control {
+    width: 150px;
+}
+/* ---------- fr ---------- */
+.toptitle .fr,.toptitle .fl {
+    margin-top: 0px;
+    margin-left: 20px;
+}
+.dropselect {
+    font-size: 0px;
+}
+.dropselect .cloth {
+    width: 100px;
+    height: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin: 0;
+}
+.dropselect .go {
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    width: 48px;
+    text-align: center;
+    vertical-align: middle;
+    background: url(../img/go.jpg) repeat-x;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin: 0;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+.dropselect .go:hover {
+    background: url(../img/go_hover.jpg) repeat-x;
+}
+.valueChange {
+    overflow-y: auto;
+    height: 300px;
+}
+.visible {
+    display: block;
+}
+.valueChange li a {
+    padding: 3px 10px;
+}
+/* ------------------ content-wrap ------------------ */
+.content-wrap{
+    width: 100%;
+}
+.content-title{
+    height: 34px;
+    width: 100%;
+    background: url("../img/title_bg.jpg");
+    border: 1px solid #B6BDC5;
+    border-radius: 5px 5px 0  0;
+    box-shadow: 0 4px 4px #8F949A;
+    text-align: left;
+}
+.content-title strong{
+    line-height: 34px;
+    margin: 0 15px;
+    color: #63666d;
+    font-weight: normal;
+    text-shadow: 1px 1px 1px #fff;
+}
+.content-title .export{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    float: right;
+    background: url("../img/dow.png") no-repeat center;
+    margin-top: 7px;
+    border: 1px solid #9ba3a6;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+.content-title .export:hover {
+    background: url(../img/dow-h.jpg) no-repeat center;
+}
+.content-main{
+    width: 100%;
+    border: 1px solid #b1b2c4;
+    border-top-color: #DBDFE1;
+    background: #ebf0f3;
+    box-shadow: 0px 1px 4px #8F949A;
+    border-radius: 0 0 6px 6px;
+}
+.nav{
+    margin: 20px 0 0 30px;
+}
+.nav-tabs{
+    border-bottom:none;
+}
+.nav a{
+    font-weight: bolder;
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+}
+.tab-content{
+    overflow: hidden;
+}
+.tabContent{
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 6px;
+    padding: 24px 25px 16px;
+    margin: 0 10px 30px;
+}
+.table-style{
+    background: #fff;
+    border-collapse: collapse;
+}
+.table-style tr th,.table-style tr td{
+    text-align: center;
+    height: 28px;
+    line-height: 28px;
+}
+.order-by:hover {
+    background: #afb6bc;
+    color: white;
+    cursor: pointer;
+}
+
+.excel-he tr th{
+background: #EBF0F3;
+}
+.excel-he tr th,.excel-he tr td{
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+}
+/* ------- 图表切换按钮 ------ */
+#switch {
+    width: 10%;
+    height: 40px;
+    margin-top: -10px;
+    padding-left: 1%;
+}
+#switch a {
+    width: 15px;
+    height: 24px;
+    padding: 0 5px;
+    line-height: 22px;
+    display: block;
+    border: 1px solid #9FA3A8;
+    border-radius: 3px;
+    background: url(../img/button_bg.png);
+    color: #616D73;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+}
+.icon_pic {
+    display: inline-block;
+    width: 15px;
+    height: 24px;
+    line-height: 22px;
+    background: url(../img/icon_pic.png) no-repeat center;
+}
+.icon_table {
+    display: inline-block;
+    width: 15px;
+    height: 24px;
+    line-height: 22px;
+    background: url(../img/icon_table.png) no-repeat center;
+}
+/* -------------- vip分布 ------------- */
+.pie-wrap{
+    width: 90%;
+    height: 500px;
+    margin: 20px auto;
+    border-radius: 15px;
+}
+/* ------------- 付费用户 -------------- */
+.tub-wrap{
+    width: 98.1%;
+    height: 400px;
+    margin: 0 auto 9px;
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+    border: 1px solid #c0c5cb;
+}
+#chart-content{
+    width: 100%;
+    height: 100%;
+}
+/* --------- 日志 -------- */
+.form-inline .form-group{
+    display: inline-block;
+}
+.form-inline .form-control{
+    width: auto;
+}
+.form-group>label{
+    font-weight: 700 !important;
+}
+.tip{
+    color: red;
+    margin-left: 10px;
+    font-size: 12px;
+    line-height: 27px;
+}
+.chart-wrap{
+    box-sizing: border-box;
+    width:100%;
+    height: auto;
+    padding: 15px;
+}
+.highcharts-data-table{
+    text-align: center;
+}
+.highcharts-data-table>table{
+    margin-top: 15px;
+    width: 100%;
+}
+.highcharts-data-table>table>caption{
+    /* background: #64B4C0; */
+    background: linear-gradient(to bottom, #1993B6, #64B4C0);
+    height: 30px;
+    font:15px/30px "微软雅黑";
+}
+.highcharts-data-table>table>thead>tr{
+    height: 25px;
+}
+.highcharts-data-table>table>thead>tr>th{
+    border: 1px solid rgb(255, 255, 255);
+    /* background: #64b4c0; */
+    background: linear-gradient(to bottom, #64b4c0, #92D0DA);
+}
+.highcharts-data-table>table>tbody>tr{
+    height: 25px;
+}
+.highcharts-data-table>table>tbody>tr:nth-of-type(even){
+    background:#92d0da;
+}
+/* ---------- expandTitle ---------- */
+.expandTitle{
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all .7s;
+}
+.expandTitle:hover{
+    background: url("../img/title_bg2.jpg");
+}
+.expandTitle:hover.content-title>span{
+    top: 0;
+}
+.expandTitle>strong,.expandTitle>a{
+    transition: all .7s;
+}
+.expandTitle:hover.expandTitle>strong,.expandTitle:hover.expandTitle>a{
+    opacity: 0;
+}
+.content-title>span{
+    position: absolute;
+    top: 100%;
+    left: 42%;
+    font: 17px/34px "微软雅黑";
+    text-align: center;
+    color: rgb(93, 99, 104);
+    /* z-index: 2; */
+    transform: translate(83px,0);
+    transition: all .7s;
+}
+.expandTitle::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 100%;
+    left: 42%;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 190px solid rgba(255,255,255,0.9);
+    transition: all 0.5s;
+}
+.expandTitle:hover::before{
+    opacity: 1;
+    transform: translate(0px,-190px);
+}
+.expandTitle:hover::after{
+    opacity: 1;
+    transform: translate(0px,-150px);
+}
+.expandTitle::after{
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 42%;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 190px solid rgba(177, 192, 194, 0.25);
+    transition: all 0.5s;
+}
+/* -----------Bootstrap fileinput------------ */
+.kv-fileinput-caption{
+    display: none;
+    box-shadow: rgb(247, 151, 151)
+}
+#kvFileinputModal{
+    display: none;
+}
+/* ------------------ data-tip ---------------------- */
+.data-tip{
+    padding: 15px;
+    border: 1px dashed #43A1AB;
+    background: rgb(206, 235, 245);
+    color: rgb(0, 124, 201);
+}
+.data-tip>h2{
+    font-weight: bolder;
+    margin: 0 0 10px 0;
+}
+

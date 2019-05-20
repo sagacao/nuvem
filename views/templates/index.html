@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内部管理</title>
+    <link rel="icon" href="/views/static/img/favicon.ico">
+    <link rel="stylesheet" href="/views/static/js/bootstrap/bootstrap-2.3.2.css">
+    <link rel="stylesheet" href="/views/static/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/views/static/js/bootstrap-fileinput-master/css/fileinput.min.css">
+    <link rel="stylesheet" href="/views/static/js/layer/skin/layer.css">
+    <link rel="stylesheet" href="/views/static/js/ztree.3.5.26/zTreeStyle/zTreeStyle.css">
+    <link rel="stylesheet" href="/views/static/js/ztree.3.5.26/zTreeStyle/zTreeRightStyle.css">
+    <link rel="stylesheet" href="/views/static/js/validform/validform.css">
+    <link rel="stylesheet" href="/views/static/css/reset.css">
+    <link rel="stylesheet" href="/views/static/css/style.css">
+    <script src="/views/static/js/jquery/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="user">
+            <div class="fr">
+                <span class="mar-right10 changePass" data-toggle="modal" data-target="#passwordModal" data-backdrop="true" data-keyboard="true">修改密码</span>
+                <span class="user-name" data-bind="text:userName"></span>
+                <span class="exit">
+                    <a href="/views/templates/login.html" data-bind="click:logout">退出</a>
+                </span>
+            </div>
+        </div>
+        <div class="toptitle">
+            <!-- System & Time -->
+            <div class="titleContainer fl">
+                <strong>
+                    <a href="javascript:void(0)">管理中心</a>
+                </strong>
+                
+            </div><!-- System & Time -->
+        </div><!-- toptitle -->
+    </header>
+    <div class="mainContainer">
+        <aside>
+            <ul id="tree" class="ztree"></ul>
+        </aside>
+        <div class="pageContainer">
+            
+        </div>
+    </div><!-- /.container -->
+    <!-- /.modal -->
+    <script src="/views/static/js/bootstrap/bootstrap-3.3.7.min.js"></script>
+    <script src="/views/static/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="/views/static/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="/views/static/js/knockout/knockout-3.4.0.min.js"></script>
+    <script src="/views/static/js/layer/layer.js"></script>
+    <script src="/views/static/js/common/common.js"></script>
+    <script src="/views/static/js/common/md5.js"></script>
+    <script src="/views/static/js/common/page.js"></script>
+    <script src="/views/static/js/validform/Validform_v5.3.2_min.js"></script>
+    <script src="/views/static/js/spin/spin.min.js"></script>
+    
+    <script src="/views/static/js/ztree.3.5.26/jquery.ztree.core.js"></script>
+    <script src="/views/static/js/ztree.3.5.26/jquery.ztree.excheck.min.js"></script>
+    
+    <script src="/views/static/js/bootstrap-fileinput-master/js/fileinput.min.js"></script>
+    <script src="/views/static/js/bootstrap-fileinput-master/js/locales/zh.js"></script>
+    <script src="http://mockjs.com/dist/mock.js"></script>
+    <script>
+        $.ajaxSetup({
+            cache: false //关闭AJAX相应的缓存 
+        });
+        var sp = document.createElement("script");
+        sp.src = "/views/static/js/index.js?x=" + Math.random();
+        sp.type = "text/javascript";
+        $("body")[0].appendChild(sp);
+    </script>
+    <!-- <script src='/static/js/index.js?"+Math.random()"'></script> -->
+</body>
+</html>

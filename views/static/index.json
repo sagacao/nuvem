@@ -1,0 +1,19 @@
+{
+	"TreeList":[
+		{"name":"在线数据","children":[
+				{"name":"当前在线汇总","children":null},
+				{"name":"平均在线时长","children":null},
+				{"name":"房间统计","children":null}
+			]
+		},
+		{"name":"配置数据","children":[
+				{"name":"分享配置","children":null},
+				{"name":"网关","children":null},
+				{"name":"激活码","children":null},
+				{"name":"功能开关","children":null},
+				{"name":"公告","children":null}
+			]
+		}
+	]
+		
+}
