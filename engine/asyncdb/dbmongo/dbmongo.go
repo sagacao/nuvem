@@ -9,6 +9,7 @@ import (
 	"time"
 
 	mgo "gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type MongoSession struct {
@@ -156,6 +157,21 @@ func (dbm *DBMongo) AsyncExec(collection string, dbkey string, data interface{})
 			return nil, err
 		}
 		return s.DB(dbm.dataSource).C(collection).UpsertId(dbkey, data)
+	})
+
+	ret, err := exec()
+	if ret == nil {
+		return nil, err
+	}
+	return ret.(*mgo.ChangeInfo), err
+}
+
+func (dbm *DBMongo) AsyncUpdate(collection string, query bson.M, data bson.M) (*mgo.ChangeInfo, error) {
+	exec := utils.Future(func() (interface{}, error) {
+		s := dbm.Ref()
+		defer dbm.UnRef(s)
+
+		return s.DB(dbm.dataSource).C(collection).Upsert(query, bson.M{"$set": data})
 	})
 
 	ret, err := exec()
