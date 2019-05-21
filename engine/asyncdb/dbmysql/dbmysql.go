@@ -62,7 +62,7 @@ func (dbm *DBMysql) AsyncExec(query string, args ...interface{}) (sql.Result, er
 	})
 
 	ret, err := exec()
-	if err == nil {
+	if ret == nil {
 		return nil, err
 	}
 	return ret.(sql.Result), err

@@ -33,12 +33,12 @@ func Reply(msgcode, errcode uint32, data interface{}, seq int) JSON {
 	}
 }
 
-func ToBytes(reply interface{}) []byte {
+func ToBytes(reply interface{}) ([]byte, error) {
 	var json = jsoniter.ConfigCompatibleWithStandardLibrary
 	replybyte, err := json.Marshal(reply)
 	if err != nil {
 		logger.Error("ToBytes", err)
-		return []byte(err.Error())
+		return []byte(err.Error()), err
 	}
 
 	// replystr := string(replybyte)
@@ -51,7 +51,7 @@ func ToBytes(reply interface{}) []byte {
 	// }
 	//logger.Debug("ToBytes 11111", rsp)
 
-	return replybyte
+	return replybyte, nil
 }
 
 func fromCharCode(r []rune, n int) string {

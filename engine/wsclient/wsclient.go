@@ -45,7 +45,7 @@ func (ws *Wsclient) process() {
 }
 
 func (ws *Wsclient) send(jsondata coder.JSON) {
-	msg := coder.ToBytes(jsondata)
+	msg, _ := coder.ToBytes(jsondata)
 	err := ws.conn.WriteMessage(websocket.BinaryMessage, msg)
 	if err != nil {
 		logger.Error("Wsclient send", err)

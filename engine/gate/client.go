@@ -36,10 +36,14 @@ func (self *ClientHub) OnClose(ws *asura.Socket) {
 	defer self.mu.Unlock()
 	_, ok := self.clients[ws.Sid()]
 	if ok {
-		msg := coder.ToBytes(coder.JSON{"mid": 1002}) //share.MsgCodeDisconnect
-		err := GetGate().WriteMessage(proto.MsgTypeSignle, ws.Sid(), msg)
+		msg, err := coder.ToBytes(coder.JSON{"mid": 1002}) //share.MsgCodeDisconnect
 		if err != nil {
 			logger.Error("OnMessage", ws.Sid(), err)
+		} else {
+			err := GetGate().WriteMessage(proto.MsgTypeSignle, ws.Sid(), msg)
+			if err != nil {
+				logger.Error("OnMessage", ws.Sid(), err)
+			}
 		}
 	} else {
 		logger.Error("ClientHub:OnClose error ", ws.Sid())
