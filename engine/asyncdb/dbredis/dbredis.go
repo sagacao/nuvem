@@ -192,6 +192,9 @@ func (dbm *DBRedis) AsyncZRevRank(dbkey string, uid string) (int, error) {
 
 	rank, err := exec()
 	if err != nil {
+		if strings.Contains(err.Error(), "nil") {
+			return -1, nil
+		}
 		return -1, err
 	}
 	return rank.(int), err
