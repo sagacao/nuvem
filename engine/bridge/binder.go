@@ -2,6 +2,8 @@ package bridge
 
 import (
 	"errors"
+	"nuvem/engine/coder"
+	"nuvem/engine/logger"
 	"sync"
 )
 
@@ -45,6 +47,15 @@ func (b *binder) Unbind(conn *Socket) error {
 
 	b.mu.Lock()
 	defer b.mu.Unlock()
+
+	//TODO
+	msg, err := coder.ToBytes(coder.JSON{"mid": 1002})
+	if err != nil {
+		logger.Error("OnMessage", conn.GetID(), err)
+	} else {
+		conn.Write(msg)
+	}
+
 	delete(b.connID2Sockets, conn.GetID())
 	return nil
 }

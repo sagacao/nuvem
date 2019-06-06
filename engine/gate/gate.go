@@ -17,7 +17,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const defaultAsyncMsgLen = 8192
+const defaultAsyncMsgLen = 20480
 
 type GateConfig struct {
 	GameIdentify string
