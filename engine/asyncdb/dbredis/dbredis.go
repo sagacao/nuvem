@@ -374,3 +374,33 @@ func (dbm *DBRedis) AsyncDelKeys(dbkeys []interface{}) error {
 	_, err := exec()
 	return err
 }
+
+func (dbm *DBRedis) AsyncZCard(dbkey string) (int, error) {
+	exec := utils.Future(func() (interface{}, error) {
+		conn := dbm.pool.Get()
+		defer conn.Close()
+
+		return redis.Int(conn.Do("ZCARD", dbkey))
+	})
+
+	value, err := exec()
+	if value == nil {
+		return 0, err
+	}
+	return value.(int), err
+}
+
+func (dbm *DBRedis) AsyncZRank(dbkey string, uid string) (int, error) {
+	exec := utils.Future(func() (interface{}, error) {
+		conn := dbm.pool.Get()
+		defer conn.Close()
+
+		return redis.Int(conn.Do("ZRANK", dbkey, uid))
+	})
+
+	value, err := exec()
+	if value == nil {
+		return 0, err
+	}
+	return value.(int), err
+}
