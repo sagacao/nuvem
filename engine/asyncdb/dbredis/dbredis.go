@@ -111,7 +111,9 @@ func (dbm *DBRedis) AsyncQueryRank(dbkey string, dataKey string, start, limit ui
 			var users []byte
 			users, err = redis.Bytes(conn.Do("HGET", dataKey, k))
 			if err != nil {
-				logger.Error("HGET", k, err)
+				if !strings.Contains(err.Error(), "nil returned") {
+					logger.Error("HGET", k, err)
+				}
 			} else {
 				jsondata := make(coder.JSON)
 				err := coder.ToJSON(users, jsondata)
