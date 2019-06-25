@@ -3,6 +3,7 @@ package dbmongo
 import (
 	"container/heap"
 	"io"
+	"nuvem/engine/coder"
 	"nuvem/engine/logger"
 	"nuvem/engine/utils"
 	"sync"
@@ -179,4 +180,33 @@ func (dbm *DBMongo) AsyncUpdate(collection string, query bson.M, data bson.M) (*
 		return nil, err
 	}
 	return ret.(*mgo.ChangeInfo), err
+}
+
+func (dbm *DBMongo) AsyncQueryDB(dbname, collection string, query interface{}) (*mgo.Iter, error) {
+	exec := utils.Future(func() (interface{}, error) {
+		s := dbm.Ref()
+		defer dbm.UnRef(s)
+
+		reply := s.DB(dbname).C(collection).Find(query).Iter()
+		return reply, reply.Err()
+	})
+
+	ret, err := exec()
+	if ret == nil {
+		return nil, err
+	}
+	return ret.(*mgo.Iter), err
+}
+
+func (dbm *DBMongo) AsyncUpdateDB(dbname, collection string, query bson.M, data coder.JSON) error {
+	exec := utils.Future(func() (interface{}, error) {
+		s := dbm.Ref()
+		defer dbm.UnRef(s)
+
+		err := s.DB(dbname).C(collection).Update(query, bson.M{"$set": data})
+		return nil, err
+	})
+
+	_, err := exec()
+	return err
 }
