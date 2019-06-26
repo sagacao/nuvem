@@ -210,3 +210,22 @@ func (dbm *DBMongo) AsyncUpdateDB(dbname, collection string, query bson.M, data 
 	_, err := exec()
 	return err
 }
+
+func (dbm *DBMongo) AsyncExecDB(dbname, collection string, dbkey string, data interface{}) (*mgo.ChangeInfo, error) {
+	exec := utils.Future(func() (interface{}, error) {
+		s := dbm.Ref()
+		defer dbm.UnRef(s)
+
+		if dbkey == "" {
+			err := s.DB(dbname).C(collection).Insert(data)
+			return nil, err
+		}
+		return s.DB(dbname).C(collection).UpsertId(dbkey, data)
+	})
+
+	ret, err := exec()
+	if ret == nil {
+		return nil, err
+	}
+	return ret.(*mgo.ChangeInfo), err
+}
