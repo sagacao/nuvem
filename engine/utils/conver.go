@@ -71,12 +71,21 @@ func ToUint32(str string) uint32 {
 	return uint32(value)
 }
 
-func ToInt(str string) int {
-	value, err := strconv.Atoi(str)
+func ToInt(str interface{}) int {
+	return int(InterfaceToInt64(str))
+	// value, err := strconv.Atoi(str)
+	// if err != nil {
+	// 	return 0
+	// }
+	// return value
+}
+
+func ToFloat32(str string) float32 {
+	value, err := strconv.ParseFloat(str, 32)
 	if err != nil {
 		return 0
 	}
-	return value
+	return float32(value)
 }
 
 func ToString(value uint32) string {
