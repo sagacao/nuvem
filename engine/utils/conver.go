@@ -103,9 +103,11 @@ func InterfaceToString(value interface{}) string {
 	case uint32:
 		return fmt.Sprintf("%d", value.(uint32))
 	case float64:
-		return strconv.FormatFloat(value.(float64), 'E', -1, 64)
+		// return strconv.FormatFloat(value.(float64), 'E', -1, 64)
+		return strconv.FormatFloat(value.(float64), 'f', 2, 64)
 	case float32:
-		return strconv.FormatFloat(float64(value.(float32)), 'E', -1, 32)
+		return strconv.FormatFloat(float64(value.(float32)), 'f', 2, 32)
+		// return strconv.FormatFloat(float64(value.(float32)), 'E', -1, 32)
 	default:
 		logger.Error(fmt.Sprintf("unknow type is %T", v))
 	}
